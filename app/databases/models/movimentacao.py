@@ -3,15 +3,13 @@ from app.databases.config import Base
 import enum
 
 
-
-
 # criacao do enum para tipo de origem
-class TipoOrigem(enum.Enum):
+class TipoOrigemMovimentacao(enum.Enum):
     ESTOQUE = "estoque"
     MAQUINA = "maquina"
 
 # criacao do enum para tipo de destino
-class TipoDestino(enum.Enum):
+class TipoDestinoMovimentacao(enum.Enum):
     ESTOQUE = "estoque"
     MAQUINA = "maquina"
 
@@ -21,9 +19,9 @@ class Movimentacao(Base):
     __tablename__ = "Movimentacao"
 
     idMovimentacao = Column(INTEGER, primary_key=True, nullable=False, unique=True, autoincrement=True)
-    tipoOrigem = Column(Enum(TipoOrigem), nullable=False)
+    tipoOrigem = Column(Enum(TipoOrigemMovimentacao), nullable=False)
     origemID = Column(INTEGER, nullable=False)
-    tipoDestino = Column(Enum(TipoDestino), nullable=False)
+    tipoDestino = Column(Enum(TipoDestinoMovimentacao), nullable=False)
     destinoId = Column(INTEGER, nullable=False)
     quantidade = Column(INTEGER, nullable=False)
     dataMovimentacao = Column(TIMESTAMP, nullable=False, server_default=func.now())

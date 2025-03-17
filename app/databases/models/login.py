@@ -1,4 +1,4 @@
-from sqlalchemy import Column, INTEGER, VARCHAR, ForeignKey, BOOLEAN, TIMESTAMP, DATETIME, func
+from sqlalchemy import Column, INTEGER, VARCHAR, ForeignKey, BOOLEAN, TIMESTAMP, DateTime, func
 from app.databases.config import Base
 
 
@@ -12,7 +12,7 @@ class Login(Base):
     senhaHASH = Column(VARCHAR(255), unique=True, nullable=False)
     email = Column(VARCHAR(100), unique=True, nullable=False)
     dataRegistro = Column(TIMESTAMP, nullable=False, server_default=func.now())
-    ultimoLogin = Column(DATETIME, nullable=True)
+    ultimoLogin = Column(DateTime, nullable=True)
     estaAtivo = Column(BOOLEAN, nullable=False)
 
     id_Cliente = Column(INTEGER,

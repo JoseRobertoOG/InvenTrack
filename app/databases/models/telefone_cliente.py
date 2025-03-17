@@ -8,10 +8,11 @@ import enum
 class TipoTelefone(enum.Enum):
     COMERCIAL = "comercial"
     RESIDENCIAL = "residencial"
-    COMERCIAL = "comercial"
+    PESSOAL = "pessoal"
 
 
 class TelefoneCliente(Base):
+    __tablename__ = "TelefoneCliente"
     idTelefoneCliente = Column(INTEGER, primary_key=True, unique=True, nullable=False, autoincrement=True)
     codPais = Column(VARCHAR(4), nullable=False)
     numero = Column(VARCHAR(20), nullable=False, unique=True)
