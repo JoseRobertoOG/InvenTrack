@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 # Endereço do banco de dados
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/postgres"
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/inventrack"
 
 
 # Criação do engine
