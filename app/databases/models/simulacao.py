@@ -9,7 +9,7 @@ class Simulacao(Base):
 
     idSimulacao = Column(INTEGER, primary_key=True, unique=True, nullable=False, autoincrement=True)
     dataRegistro = Column(TIMESTAMP, nullable=False, server_default=func.now())
-    nomeSimulacao = Column(VARCHAR(50), nullable=False, unique=True)
+    nomeSimulacao = Column(VARCHAR(50), nullable=False)
 
     id_Cliente = Column(INTEGER,
                         ForeignKey("Cliente.idCliente",
