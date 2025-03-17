@@ -1,4 +1,4 @@
-from .config import engine
+from config import engine
 from .models.cliente import Cliente
 from .models.endereco_cliente import Endereco
 from .models.telefone_cliente import TelefoneCliente
