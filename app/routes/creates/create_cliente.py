@@ -1,9 +1,6 @@
-from pydantic import EmailStr, BaseModel
-from sqlalchemy.orm import Session
-from app.databases.models.cliente import Cliente
-from app.databases.models.endereco_cliente import Endereco
-from app.databases.models.telefone_cliente import TelefoneCliente, TipoTelefone
-from app.databases.models.login import Login
+from pydantic import BaseModel
+from app.databases.models.telefone_cliente import TipoTelefone
+
 
 
 
@@ -11,7 +8,7 @@ from app.databases.models.login import Login
 # Tabela Cliente
 class ClienteBase(BaseModel):
     nome_completo: str
-    email: EmailStr
+    email: str
     cpf: str
     genero: str
     data_nascimento: str
@@ -39,8 +36,16 @@ class EnderecoBase(BaseModel):
     complemento: str | None = None
 
 
+# Tabela Login
+class LoginBase(BaseModel):
+    username: str
+    senha: str
+    confirmacao_senha: str
+
+
 # Classe para combinar todos:
 class ClienteCreate(BaseModel):
     cliente: ClienteBase
     telefone: TelefoneBase
     endereco: EnderecoBase
+    login: LoginBase
